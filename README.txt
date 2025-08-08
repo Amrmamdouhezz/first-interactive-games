@@ -1,158 +1,46 @@
-🌟 EDUCATIONAL GAMES HUB 🌟
-============================
+Educational Games Hub - Single File Distribution
 
-A collection of fun, interactive educational games designed for children to learn while having fun!
+This package contains educational games for children in a single HTML file format.
 
-🎮 GAMES INCLUDED
-=================
+FILES INCLUDED:
+- educational-games-single-file.html (Main game file)
+- memory-game/assets/audio/ (Audio files for Memory Game)
+- numer-counting-game/assets/audio/ (Audio files for Counting Game)
 
-1. 🔠 ALPHABET MATCHING GAME (Memory Game)
-   - Location: /memory-game/
-   - Type: Memory card matching game
-   - Features:
-     * 5 difficulty levels (2 to 26 pairs)
-     * Letter recognition with images
-     * Audio pronunciation for each letter
-     * Timer and move counter
-     * Success animations
-     * Responsive design
+HOW TO USE:
+1. Extract all files from the zip folder
+2. Make sure the assets folders are in the same directory as the HTML file
+3. Open educational-games-single-file.html in any modern web browser
+4. Click on a game to start playing!
 
-2. 🔢 COUNT & WIN GAME (Counting Practice)
-   - Location: /numer-counting-game/
-   - Type: Number counting game
-   - Features:
-     * 5 progressive levels
-     * Visual object counting
-     * Input validation
-     * Score tracking
-     * Success celebrations
-     * Responsive design
+GAMES INCLUDED:
+1. Alphabet Matching Game (Memory Game)
+   - Match letter pairs
+   - Multiple difficulty levels
+   - Audio feedback for each letter
+   - Background music
 
-🎨 DESIGN FEATURES
-==================
+2. Count & Win Game (Counting Game)
+   - Count objects on screen
+   - 5 different levels
+   - Audio feedback for correct/incorrect answers
+   - Background music
 
-✅ Kid-Friendly Design:
-   - Bright, colorful gradients
-   - Large, readable fonts (Comic Sans MS)
-   - Rounded corners and soft shadows
-   - Animated elements and transitions
+FEATURES:
+- Kid-friendly interface
+- Audio feedback for all interactions
+- Background music (can be toggled)
+- Instructions page for parents
+- Responsive design for different screen sizes
+- No internet connection required
 
-✅ Responsive Layout:
-   - Works on desktop, tablet, and mobile
-   - Adaptive grid layouts
-   - Touch-friendly buttons
-   - Optimized for different screen sizes
+SYSTEM REQUIREMENTS:
+- Modern web browser (Chrome, Firefox, Safari, Edge)
+- Audio support enabled
+- JavaScript enabled
 
-✅ Accessibility:
-   - ARIA labels for screen readers
-   - Keyboard navigation support
-   - High contrast colors
-   - Clear visual feedback
+NOTE: This is designed to be distributed as a zip folder containing the single HTML file and the assets folder. The HTML file references the audio files in the assets folders, so both must be present for full functionality.
 
-🎵 AUDIO FEATURES
-=================
-
-Memory Game:
-- Letter pronunciation (A.mp3, B.mp3, etc.)
-- Card flip sounds
-- Match success sounds
-- Level completion sounds
-
-Counting Game:
-- Correct answer sounds
-- Incorrect answer sounds
-- Game completion sounds
-
-📁 FILE STRUCTURE
-=================
-
-game/
-├── index.html                 # Main homepage
-├── style.css                  # Main styles
-├── README.txt                 # This file
-├── memory-game/               # Alphabet matching game
-│   ├── index.html
-│   ├── script.js
-│   ├── style.css
-│   └── assets/
-│       ├── audio/             # Letter sounds (A.mp3-Z.mp3)
-│       └── images/            # Letter cards (Aa.png-Zz.png)
-└── numer-counting-game/       # Counting game
-    ├── index.html
-    ├── script.js
-    ├── style.css
-    └── assets/
-        ├── audio/             # Game sounds
-        └── images/            # Level images (level-1.png to level-5.png)
-
-🚀 HOW TO USE
-=============
-
-1. Open index.html in a web browser
-2. Choose your preferred game
-3. Follow the on-screen instructions
-4. Have fun learning!
-
-🎯 LEARNING OBJECTIVES
-======================
-
-Alphabet Matching Game:
-- Letter recognition
-- Memory development
-- Visual matching skills
-- Audio-visual association
-
-Counting Game:
-- Number recognition
-- Counting skills
-- Visual processing
-- Problem-solving
-
-🔧 TECHNICAL DETAILS
-====================
-
-Built with:
-- HTML5
-- CSS3 (with animations and gradients)
-- Vanilla JavaScript (ES6+)
-- Responsive design principles
-
-Browser Support:
-- Chrome (recommended)
-- Firefox
-- Safari
-- Edge
-
-📱 MOBILE COMPATIBILITY
-=======================
-
-- Touch-friendly interface
-- Responsive design
-- Optimized for tablets and phones
-- Works offline (no internet required)
-
-🎨 CUSTOMIZATION
-================
-
-To customize the games:
-1. Replace images in the assets folders
-2. Modify colors in the CSS files
-3. Add new audio files for sounds
-4. Adjust difficulty levels in the JavaScript files
-
-🌟 FEATURES HIGHLIGHTS
-======================
-
-✅ Progressive difficulty levels
-✅ Audio feedback and narration
-✅ Visual animations and effects
-✅ Score tracking and statistics
-✅ Success celebrations
-✅ Easy navigation between games
-✅ Clean, intuitive interface
-✅ Educational content
-✅ Fun and engaging design
-
-Made with ❤️ for educational fun!
+For questions or support, please refer to the instructions page within the game.
 
 
