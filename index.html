@@ -1,0 +1,2635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Games Hub - Let's Play and Learn!</title>
+    <style>
+        /* Main styles for the hub */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header styles */
+        .welcome-header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: bounceIn 1s ease-out;
+        }
+
+        .main-title {
+            font-size: 3.5rem;
+            color: #fff;
+            text-shadow: 3px 3px 0px #ff6b6b, 6px 6px 0px #4ecdc4;
+            margin-bottom: 20px;
+            animation: rainbow 3s linear infinite;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* Games section */
+        .games-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+            flex: 1;
+        }
+
+        .game-card {
+            background: linear-gradient(145deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            border-radius: 25px;
+            padding: 40px 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 4px solid #fff;
+            position: relative;
+            overflow: hidden;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .game-card:active {
+            transform: translateY(-5px) scale(1.02);
+        }
+
+        .game-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s;
+            opacity: 0;
+        }
+
+        .game-card:hover::before {
+            opacity: 1;
+            transform: rotate(45deg) translate(50%, 50%);
+        }
+
+        .game-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        .game-card h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .game-card p {
+            font-size: 1.2rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #fff;
+            font-size: 1.1rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        /* Animations */
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes rainbow {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        /* Comprehensive Responsive Design */
+        
+        /* Mobile First Approach */
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+                margin: 0;
+            }
+            
+            .main-title {
+                font-size: 1.8rem;
+                text-shadow: 2px 2px 0px #ff6b6b, 4px 4px 0px #4ecdc4;
+                margin-bottom: 15px;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+                margin-bottom: 20px;
+            }
+            
+            .games-section {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                margin: 20px 0;
+            }
+            
+            .game-card {
+                padding: 20px 15px;
+                border-radius: 20px;
+                border: 3px solid #fff;
+            }
+            
+            .game-card h2 {
+                font-size: 1.3rem;
+                margin-bottom: 10px;
+            }
+            
+            .game-card p {
+                font-size: 0.9rem;
+                line-height: 1.4;
+            }
+            
+            .game-icon {
+                font-size: 2.5rem;
+                margin-bottom: 15px;
+            }
+            
+            /* Memory Game Mobile Styles */
+            .game-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .game-header p {
+                font-size: 1rem;
+            }
+            
+            .game-board {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+                padding: 15px;
+            }
+            
+            .game-board .card {
+                width: 80px;
+                height: 80px;
+                border-radius: 12px;
+                border: 2px solid #fff;
+            }
+            
+            .game-board .card .front,
+            .game-board .card .back {
+                font-size: 2rem;
+                border-radius: 12px;
+            }
+            
+            .game-stats {
+                font-size: 1rem;
+                margin-bottom: 15px;
+            }
+            
+            .music-controls {
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 15px;
+            }
+            
+            .music-btn {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+                border-radius: 15px;
+            }
+            
+            .volume-slider {
+                width: 120px;
+            }
+            
+            .game-controls {
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 20px;
+                padding: 15px;
+            }
+            
+            .control-btn {
+                padding: 12px 20px;
+                font-size: 1rem;
+                border-radius: 15px;
+            }
+            
+            .level-buttons {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .level-btn {
+                padding: 15px 20px;
+                font-size: 1.1rem;
+                border-radius: 15px;
+            }
+            
+            .back-btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+                border-radius: 20px;
+                margin: 15px;
+            }
+            
+            /* Counting Game Mobile Styles */
+            .background-container {
+                height: 250px;
+                border-radius: 15px;
+            }
+            
+            .background-placeholder {
+                font-size: 4rem;
+            }
+            
+            .counting-object {
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
+            }
+            
+            .question-area {
+                padding: 20px;
+                border-radius: 20px;
+                margin: 15px;
+            }
+            
+            .question-area h2 {
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+            }
+            
+            .input-area {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            #countingAnswerInput {
+                padding: 12px 15px;
+                font-size: 1.1rem;
+                width: 100px;
+                border-radius: 12px;
+            }
+            
+            .check-btn {
+                padding: 12px 20px;
+                font-size: 1rem;
+                border-radius: 12px;
+            }
+            
+            .feedback {
+                padding: 12px;
+                font-size: 1rem;
+                border-radius: 12px;
+            }
+            
+            /* Instructions Mobile Styles */
+            .instructions-content {
+                padding: 15px;
+                margin: 10px;
+                border-radius: 15px;
+            }
+            
+            .instruction-section {
+                padding: 15px;
+                margin-bottom: 20px;
+                border-radius: 12px;
+            }
+            
+            .instruction-section h2 {
+                font-size: 1.3rem;
+                margin-bottom: 10px;
+            }
+            
+            .instruction-section h3 {
+                font-size: 1.1rem;
+                margin: 15px 0 8px 0;
+            }
+            
+            .instruction-section p,
+            .instruction-section ul,
+            .instruction-section ol {
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+            
+            .game-instructions {
+                padding: 15px;
+                border-radius: 8px;
+            }
+            
+            /* Success Screen Mobile */
+            .success-content {
+                padding: 20px;
+                border-radius: 15px;
+            }
+            
+            .success-animation h1 {
+                font-size: 2rem;
+            }
+            
+            .stars {
+                font-size: 1.5rem;
+            }
+            
+            .success-content p {
+                font-size: 1.1rem;
+            }
+            
+            .final-stats {
+                font-size: 1rem;
+            }
+            
+            .success-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .success-btn {
+                padding: 12px 20px;
+                font-size: 1rem;
+                border-radius: 15px;
+            }
+        }
+        
+        /* Tablet Styles */
+        @media (min-width: 481px) and (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .games-section {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                margin: 30px 0;
+            }
+            
+            .game-card {
+                padding: 25px 20px;
+            }
+            
+            .game-card h2 {
+                font-size: 1.4rem;
+            }
+            
+            .game-card p {
+                font-size: 1rem;
+            }
+            
+            .game-icon {
+                font-size: 3rem;
+            }
+            
+            /* Memory Game Tablet Styles */
+            .game-board {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 12px;
+            }
+            
+            .game-board .card {
+                width: 90px;
+                height: 90px;
+            }
+            
+            .game-board .card .front,
+            .game-board .card .back {
+                font-size: 2.5rem;
+            }
+            
+            .level-buttons {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            /* Counting Game Tablet Styles */
+            .background-container {
+                height: 300px;
+            }
+            
+            .counting-object {
+                width: 50px;
+                height: 50px;
+                font-size: 1.8rem;
+            }
+            
+            .question-area {
+                max-width: 400px;
+            }
+            
+            /* Instructions Tablet */
+            .instructions-content {
+                padding: 20px;
+            }
+            
+            .instruction-section {
+                padding: 20px;
+            }
+        }
+        
+        /* Desktop Styles */
+        @media (min-width: 769px) {
+            .container {
+                padding: 30px;
+            }
+            
+            .main-title {
+                font-size: 3.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .games-section {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 30px;
+                margin: 40px 0;
+            }
+            
+            .game-card {
+                padding: 40px 30px;
+            }
+            
+            .game-card h2 {
+                font-size: 2rem;
+            }
+            
+            .game-card p {
+                font-size: 1.2rem;
+            }
+            
+            .game-icon {
+                font-size: 4rem;
+            }
+            
+            /* Memory Game Desktop Styles */
+            .game-board {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 15px;
+            }
+            
+            .game-board .card {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .game-board .card .front,
+            .game-board .card .back {
+                font-size: 3rem;
+            }
+            
+            .level-buttons {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+            }
+            
+            /* Counting Game Desktop Styles */
+            .background-container {
+                height: 400px;
+            }
+            
+            .counting-object {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+            
+            .question-area {
+                max-width: 500px;
+            }
+        }
+        
+        /* Large Desktop Styles */
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1400px;
+                padding: 40px;
+            }
+            
+            .main-title {
+                font-size: 4rem;
+            }
+            
+            .games-section {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 40px;
+            }
+            
+            .game-card {
+                padding: 50px 40px;
+            }
+            
+            .game-card h2 {
+                font-size: 2.2rem;
+            }
+            
+            .game-card p {
+                font-size: 1.3rem;
+            }
+            
+            .game-icon {
+                font-size: 4.5rem;
+            }
+        }
+        
+        /* Touch-friendly improvements */
+        @media (hover: none) and (pointer: coarse) {
+            .game-card:hover {
+                transform: none;
+            }
+            
+            .game-card:active {
+                transform: scale(0.98);
+            }
+            
+            .control-btn:hover,
+            .music-btn:hover,
+            .level-btn:hover,
+            .back-btn:hover,
+            .success-btn:hover {
+                transform: none;
+            }
+            
+            .control-btn:active,
+            .music-btn:active,
+            .level-btn:active,
+            .back-btn:active,
+            .success-btn:active {
+                transform: scale(0.95);
+            }
+            
+            /* Larger touch targets for mobile */
+            .game-board .card {
+                min-width: 60px;
+                min-height: 60px;
+            }
+            
+            .control-btn,
+            .music-btn,
+            .level-btn,
+            .back-btn,
+            .success-btn {
+                min-height: 44px;
+            }
+        }
+        
+        /* Landscape orientation adjustments */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .main-title {
+                font-size: 1.5rem;
+                margin-bottom: 10px;
+            }
+            
+            .subtitle {
+                font-size: 0.9rem;
+                margin-bottom: 10px;
+            }
+            
+            .games-section {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+                margin: 15px 0;
+            }
+            
+            .game-card {
+                padding: 15px 10px;
+            }
+            
+            .game-card h2 {
+                font-size: 1rem;
+                margin-bottom: 5px;
+            }
+            
+            .game-card p {
+                font-size: 0.8rem;
+            }
+            
+            .game-icon {
+                font-size: 2rem;
+                margin-bottom: 10px;
+            }
+            
+            .game-board {
+                grid-template-columns: repeat(6, 1fr);
+                gap: 8px;
+                padding: 10px;
+            }
+            
+            .game-board .card {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .game-board .card .front,
+            .game-board .card .back {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Game screens - initially hidden */
+        .game-screen {
+            display: none;
+            min-height: 100vh;
+        }
+
+        .game-screen.active {
+            display: block;
+        }
+
+        /* Back button */
+        .back-btn {
+            background: linear-gradient(145deg, #4ecdc4 0%, #44a08d 100%);
+            border: none;
+            border-radius: 25px;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            border: 3px solid #fff;
+            margin: 20px;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        /* Memory Game Specific Styles */
+        .game-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .game-header h1 {
+            font-size: 2.5rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+        }
+
+        .game-header p {
+            font-size: 1.2rem;
+            color: #eee;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .game-stats {
+            font-size: 1.3rem;
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+        }
+
+        .game-stats span {
+            font-weight: bold;
+            color: #ffd700; /* Gold color for stats */
+        }
+
+        .music-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .music-btn {
+            background: linear-gradient(145deg, #4ecdc4 0%, #44a08d 100%);
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border: 2px solid #fff;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        .music-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .volume-slider {
+            width: 150px;
+            accent-color: #ffd700; /* Gold color for volume slider */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            height: 8px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            outline: none;
+        }
+        
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #ffd700;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+        
+        .volume-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #ffd700;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+
+        .game-board {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 15px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .game-board .card {
+            width: 100px;
+            height: 100px;
+            perspective: 1000px;
+            cursor: pointer;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            background: linear-gradient(145deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border: 3px solid #fff;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .game-board .card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .game-board .card .front,
+        .game-board .card .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #333;
+            border-radius: 15px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .game-board .card .front {
+            background: linear-gradient(145deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            transform: rotateY(180deg);
+        }
+
+        .game-board .card .back {
+            background: linear-gradient(145deg, #4ecdc4 0%, #44a08d 100%);
+            color: #fff;
+        }
+
+        .game-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .control-btn {
+            background: linear-gradient(145deg, #4ecdc4 0%, #44a08d 100%);
+            border: none;
+            border-radius: 20px;
+            padding: 10px 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border: 2px solid #fff;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        .control-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .success-content {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .success-animation {
+            margin-bottom: 20px;
+        }
+
+        .success-animation h1 {
+            font-size: 2.8rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+        }
+
+        .stars {
+            font-size: 2rem;
+            color: #ffd700;
+            margin-bottom: 15px;
+        }
+
+        .success-content p {
+            font-size: 1.3rem;
+            color: #eee;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+
+        .final-stats {
+            font-size: 1.2rem;
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .final-stats p {
+            margin-bottom: 5px;
+        }
+
+        .success-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .success-btn {
+            background: linear-gradient(145deg, #4ecdc4 0%, #44a08d 100%);
+            border: none;
+            border-radius: 20px;
+            padding: 10px 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border: 2px solid #fff;
+        }
+
+        .success-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Screen management for games */
+        .screen {
+            display: none;
+            min-height: 100vh;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        /* Level selection styles */
+        .level-selection {
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .level-selection h2 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .level-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .level-btn {
+            background: linear-gradient(145deg, #ff9a9e 0%, #fecfef 100%);
+            border: none;
+            border-radius: 20px;
+            padding: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            border: 3px solid #fff;
+            color: #333;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        .level-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
+        .level-btn:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        /* Counting Game Specific Styles */
+        .start-content {
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .game-preview {
+            margin: 30px 0;
+        }
+
+        .preview-image {
+            max-width: 400px;
+            margin: 0 auto 20px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            background: linear-gradient(145deg, #ff9a9e 0%, #fecfef 100%);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .preview-placeholder {
+            font-size: 8rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .start-btn {
+            background: linear-gradient(145deg, #ff9a9e 0%, #fecfef 100%);
+            border: none;
+            border-radius: 25px;
+            padding: 20px 40px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            border: 3px solid #fff;
+            margin: 20px;
+        }
+
+        .start-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
+        /* Game area styles */
+        .game-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .background-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            background: linear-gradient(145deg, #ff9a9e 0%, #fecfef 100%);
+        }
+
+        .background-img {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(145deg, #4ecdc4 0%, #44a08d 100%);
+        }
+
+        .background-placeholder {
+            font-size: 6rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .objects-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .counting-object {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            animation: bounceIn 0.6s ease-out;
+            pointer-events: none;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Question area styles */
+        .question-area {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .question-area h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .input-area {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        #countingAnswerInput {
+            padding: 15px 20px;
+            font-size: 1.2rem;
+            border: 3px solid #ff9a9e;
+            border-radius: 15px;
+            text-align: center;
+            width: 120px;
+            background: #fff;
+            color: #333;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        #countingAnswerInput:focus {
+            outline: none;
+            border-color: #4ecdc4;
+            box-shadow: 0 0 15px rgba(78, 205, 196, 0.3);
+        }
+
+        .check-btn {
+            background: linear-gradient(145deg, #4ecdc4 0%, #44a08d 100%);
+            border: none;
+            border-radius: 15px;
+            padding: 15px 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .check-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Feedback styles */
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feedback.correct {
+            background: linear-gradient(145deg, #4ecdc4 0%, #44a08d 100%);
+            color: #fff;
+            animation: bounceIn 0.6s ease-out;
+        }
+
+        .feedback.incorrect {
+            background: linear-gradient(145deg, #ff6b6b 0%, #ee5a52 100%);
+            color: #fff;
+            animation: shake 0.6s ease-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        .confetti {
+            font-size: 3rem;
+            margin: 20px 0;
+            animation: confettiFall 2s ease-in-out infinite;
+        }
+
+        @keyframes confettiFall {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(180deg); }
+        }
+
+        /* Instructions Page Styles */
+        .instructions-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .instruction-section {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: linear-gradient(145deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            border-left: 5px solid #4ecdc4;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .instruction-section h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .instruction-section h3 {
+            color: #34495e;
+            font-size: 1.3rem;
+            margin: 20px 0 10px 0;
+            border-bottom: 2px solid #4ecdc4;
+            padding-bottom: 5px;
+        }
+
+        .instruction-section p {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .instruction-section ul, .instruction-section ol {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .instruction-section li {
+            margin-bottom: 8px;
+            padding-left: 5px;
+        }
+
+        .instruction-section strong {
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .game-instructions {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .game-instructions ul, .game-instructions ol {
+            margin-left: 25px;
+        }
+
+        .game-instructions li {
+            margin-bottom: 10px;
+        }
+
+        /* Responsive design for instructions */
+        @media (max-width: 768px) {
+            .instructions-content {
+                padding: 15px;
+                margin: 10px;
+            }
+            
+            .instruction-section {
+                padding: 20px;
+                margin-bottom: 30px;
+            }
+            
+            .instruction-section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .instruction-section h3 {
+                font-size: 1.2rem;
+            }
+            
+            .instruction-section p, .instruction-section ul, .instruction-section ol {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Hub Screen -->
+    <div id="mainHub" class="container">
+        <header class="welcome-header">
+            <h1 class="main-title">🌟 Let's Play and Learn! 🌟</h1>
+            <p class="subtitle">Choose your favorite game and have fun!</p>
+        </header>
+        
+        <main class="games-section">
+            <div class="game-card" onclick="showMemoryGame()" role="button" tabindex="0" aria-label="Play Alphabet Matching Game">
+                <div class="game-icon">🧩</div>
+                <h2>Alphabet Matching Game</h2>
+                <p>Match the letters and improve your memory!</p>
+            </div>
+            
+            <div class="game-card" onclick="showCountingGame()" role="button" tabindex="0" aria-label="Play Count and Win Game">
+                <div class="game-icon">🎯</div>
+                <h2>Count & Win Game</h2>
+                <p>Count the objects and win prizes!</p>
+            </div>
+            
+            <div class="game-card" onclick="showInstructions()" role="button" tabindex="0" aria-label="View Instructions for Parents">
+                <div class="game-icon">💡</div>
+                <h2>Instructions for Parents</h2>
+                <p>Learn how to help your child get the most from these games!</p>
+            </div>
+        </main>
+        
+        <footer class="footer">
+            <p>🎮 Made with love for learning! 🎮</p>
+        </footer>
+    </div>
+
+    <!-- Instructions Screen -->
+    <div id="instructionsScreen" class="game-screen">
+        <div class="container">
+            <header class="game-header">
+                <h1>📚 Instructions for Parents</h1>
+                <p>How to help your child learn and have fun!</p>
+            </header>
+            
+            <div class="instructions-content">
+                <div class="instruction-section">
+                    <h2>🎯 About These Games</h2>
+                    <p>These educational games are designed to help children develop essential skills while having fun. Each game focuses on different learning objectives and can be played at various difficulty levels.</p>
+                </div>
+                
+                <div class="instruction-section">
+                    <h2>🔠 Alphabet Matching Game</h2>
+                    <div class="game-instructions">
+                        <h3>What it teaches:</h3>
+                        <ul>
+                            <li>Letter recognition and identification</li>
+                            <li>Memory and concentration skills</li>
+                            <li>Visual matching abilities</li>
+                            <li>Problem-solving strategies</li>
+                        </ul>
+                        
+                        <h3>How to play:</h3>
+                        <ol>
+                            <li>Choose a difficulty level (Easy to Expert)</li>
+                            <li>Click on cards to flip them and reveal letters</li>
+                            <li>Find matching pairs of the same letter</li>
+                            <li>Complete all pairs to finish the level</li>
+                        </ol>
+                        
+                        <h3>Tips for parents:</h3>
+                        <ul>
+                            <li>Start with Easy level (2 pairs) for beginners</li>
+                            <li>Encourage your child to say the letter names out loud</li>
+                            <li>Praise effort and persistence, not just speed</li>
+                            <li>Take breaks if your child gets frustrated</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="instruction-section">
+                    <h2>🔢 Count & Win Game</h2>
+                    <div class="game-instructions">
+                        <h3>What it teaches:</h3>
+                        <ul>
+                            <li>Counting and number recognition</li>
+                            <li>Visual counting skills</li>
+                            <li>Number-to-quantity relationships</li>
+                            <li>Basic arithmetic concepts</li>
+                        </ul>
+                        
+                        <h3>How to play:</h3>
+                        <ol>
+                            <li>Look at the objects displayed on screen</li>
+                            <li>Count how many objects you see</li>
+                            <li>Type your answer in the input box</li>
+                            <li>Click "Check Answer" to see if you're correct</li>
+                        </ol>
+                        
+                        <h3>Tips for parents:</h3>
+                        <ul>
+                            <li>Help your child count slowly and carefully</li>
+                            <li>Encourage them to point to each object while counting</li>
+                            <li>Celebrate correct answers and encourage trying again for wrong ones</li>
+                            <li>Use the game as a starting point for real-world counting activities</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="instruction-section">
+                    <h2>🎵 Audio Features</h2>
+                    <p>Both games include audio features to enhance the learning experience:</p>
+                    <ul>
+                        <li><strong>Background Music:</strong> Can be toggled on/off and volume adjusted</li>
+                        <li><strong>Sound Effects:</strong> Provide feedback for correct/incorrect answers</li>
+                        <li><strong>Letter Sounds:</strong> In the Alphabet game, letters are pronounced when matched</li>
+                    </ul>
+                </div>
+                
+                <div class="instruction-section">
+                    <h2>🌟 Learning Benefits</h2>
+                    <ul>
+                        <li><strong>Cognitive Development:</strong> Improves memory, attention, and problem-solving skills</li>
+                        <li><strong>Academic Readiness:</strong> Builds foundation for reading and math</li>
+                        <li><strong>Confidence Building:</strong> Success in games boosts self-esteem</li>
+                        <li><strong>Screen Time Quality:</strong> Educational content that's both fun and beneficial</li>
+                    </ul>
+                </div>
+                
+                <div class="instruction-section">
+                    <h2>💡 Additional Tips</h2>
+                    <ul>
+                        <li>Play together with your child to make it a bonding experience</li>
+                        <li>Set reasonable time limits for screen time</li>
+                        <li>Use the games as a reward for completing other activities</li>
+                        <li>Encourage your child to explain their thinking process</li>
+                        <li>Celebrate progress and improvement, not just perfect scores</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <button class="back-btn" onclick="showMainHub()">🏠 Back to Home</button>
+        </div>
+    </div>
+
+    <!-- Memory Game Screen -->
+    <div id="memoryGame" class="game-screen">
+        <div class="container">
+            <!-- Level Selection Screen -->
+            <div id="memoryLevelScreen" class="screen active">
+                <header class="game-header">
+                    <h1>🔠 Alphabet Matching Game</h1>
+                    <p>Choose your level and start matching letters!</p>
+                    <div class="music-controls">
+                        <button class="music-btn" id="memoryToggleMusicBtn">🎵 Play Music</button>
+                        <input type="range" id="memoryMusicVolume" min="0" max="100" value="50" class="volume-slider">
+                    </div>
+                </header>
+                
+                <div class="level-selection">
+                    <h2>Select Level:</h2>
+                    <div class="level-buttons">
+                        <button class="level-btn" data-level="2">Easy (2 pairs)</button>
+                        <button class="level-btn" data-level="4">Medium (4 pairs)</button>
+                        <button class="level-btn" data-level="6">Hard (6 pairs)</button>
+                        <button class="level-btn" data-level="10">Expert (10 pairs)</button>
+                        <button class="level-btn" data-level="26">Full Alphabet (26 pairs)</button>
+                    </div>
+                </div>
+                
+                <button class="back-btn" onclick="showMainHub()">🏠 Back to Home</button>
+            </div>
+
+            <!-- Game Screen -->
+            <div id="memoryGameScreen" class="screen">
+                <header class="game-header">
+                    <h1>🔠 Alphabet Matching Game</h1>
+                    <div class="game-stats">
+                        <span class="moves">Moves: <span id="memoryMoveCount"> 0 /</span></span>
+                        <span class="timer">Time: <span id="memoryTimer">00:00  /</span></span>
+                        <span class="pairs">Pairs: <span id="memoryPairsFound">0</span>/<span id="memoryTotalPairs">0  /</span></span>
+                    </div>
+                    <div class="music-controls">
+                        <button class="music-btn" id="memoryToggleMusicBtnGame">🎵 Play Music</button>
+                        <input type="range" id="memoryMusicVolumeGame" min="0" max="100" value="50" class="volume-slider">
+                    </div>
+                </header>
+                
+                <div class="game-board" id="memoryGameBoard">
+                    <!-- Cards will be generated here -->
+                </div>
+                
+                <div class="game-controls">
+                    <button class="control-btn" id="memoryRestartBtn">🔄 Restart</button>
+                    <button class="control-btn" id="memoryNewLevelBtn">📚 New Level</button>
+                    <button class="control-btn" id="memoryQuitGameBtn">❌ Quit Game</button>
+                    <button class="control-btn" onclick="showMainHub()">🏠 Home</button>
+                </div>
+            </div>
+
+            <!-- Success Screen -->
+            <div id="memorySuccessScreen" class="screen">
+                <div class="success-content">
+                    <div class="success-animation">
+                        <h1>🎉 Congratulations! 🎉</h1>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p>You completed the level!</p>
+                        <div class="final-stats">
+                            <p>Total Moves: <span id="memoryFinalMoves">0</span></p>
+                            <p>Time: <span id="memoryFinalTime">00:00</span></p>
+                        </div>
+                    </div>
+                    
+                    <div class="success-buttons">
+                        <button class="success-btn" id="memoryReplayBtn">🔄 Play Again</button>
+                        <button class="success-btn" id="memoryNextLevelBtn">📚 Next Level</button>
+                        <button class="success-btn" onclick="showMainHub()">🏠 Back to Home</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Counting Game Screen -->
+    <div id="countingGame" class="game-screen">
+        <div class="container">
+            <!-- Start Screen -->
+            <div id="countingStartScreen" class="screen active">
+                <header class="game-header">
+                    <h1>🔢 Count & Win Game</h1>
+                    <p>Count the objects and win prizes!</p>
+                    <div class="music-controls">
+                        <button class="music-btn" id="countingToggleMusicBtn">🎵 Play Music</button>
+                        <input type="range" id="countingMusicVolume" min="0" max="100" value="50" class="volume-slider">
+                    </div>
+                </header>
+                
+                <div class="start-content">
+                    <div class="game-preview">
+                        <div class="preview-image">
+                            <div class="preview-placeholder">🎯</div>
+                        </div>
+                        <p>Ready to count and learn?</p>
+                    </div>
+                    
+                    <button class="start-btn" id="countingStartBtn">🚀 Start Counting</button>
+                    <button class="back-btn" onclick="showMainHub()">🏠 Back to Home</button>
+                </div>
+            </div>
+
+            <!-- Game Screen -->
+            <div id="countingGameScreen" class="screen">
+                <header class="game-header">
+                    <h1>🔢 Count & Win Game</h1>
+                    <div class="game-stats">
+                        <span class="level">Level: <span id="countingCurrentLevel">1</span>/5</span>
+                        <span class="score">Score: <span id="countingScore">0</span></span>
+                        <span class="attempts">Attempts: <span id="countingCurrentAttempts">0</span>/2</span>
+                    </div>
+                    <div class="music-controls">
+                        <button class="music-btn" id="countingToggleMusicBtnGame">🎵 Play Music</button>
+                        <input type="range" id="countingMusicVolumeGame" min="0" max="100" value="50" class="volume-slider">
+                    </div>
+                </header>
+                
+                <div class="game-area">
+                    <div class="background-container">
+                        <div class="background-img" id="countingBackgroundImg">
+                            <div class="background-placeholder">🌳</div>
+                        </div>
+                        <div class="objects-container" id="countingObjectsContainer">
+                            <!-- Objects will be placed here -->
+                        </div>
+                    </div>
+                    
+                    <div class="question-area">
+                        <h2 id="countingQuestionText">How many objects do you see?</h2>
+                        <div class="input-area">
+                            <input type="number" id="countingAnswerInput" placeholder="Enter your answer" min="1" max="20" maxlength="2">
+                            <button class="check-btn" id="countingCheckBtn">✅ Check Answer</button>
+                        </div>
+                        <div class="feedback" id="countingFeedback"></div>
+                    </div>
+                </div>
+                
+                <div class="game-controls">
+                    <button class="control-btn" id="countingQuitGameBtn">❌ Quit Game</button>
+                    <button class="control-btn" onclick="showMainHub()">🏠 Home</button>
+                </div>
+            </div>
+
+            <!-- Success Screen -->
+            <div id="countingSuccessScreen" class="screen">
+                <div class="success-content">
+                    <div class="success-animation">
+                        <h1>🎉 You Did It! 🎉</h1>
+                        <div class="confetti">🎊🎈🎉</div>
+                        <p>Congratulations! You passed with flying colors!</p>
+                        <p>You got <span id="countingExactPercentage">0</span>% correct answers!</p>
+                        <div class="final-score">
+                            <p>Final Score: <span id="countingFinalScore">0</span>/5</p>
+                        </div>
+                    </div>
+                    
+                    <div class="success-buttons">
+                        <button class="success-btn" id="countingPlayAgainBtn">🔄 Play Again</button>
+                        <button class="success-btn" onclick="showMainHub()">🏠 Back to Home</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navigation functions
+        function showMemoryGame() {
+            // Stop all audio from other games before switching
+            if (window.countingGameInstance) {
+                window.countingGameInstance.stopAllAudio();
+            }
+            
+            document.getElementById('mainHub').style.display = 'none';
+            document.getElementById('instructionsScreen').classList.remove('active');
+            document.getElementById('countingGame').classList.remove('active');
+            document.getElementById('memoryGame').classList.add('active');
+            if (window.memoryGameInstance) {
+                window.memoryGameInstance.showLevelScreen();
+            } else {
+                window.memoryGameInstance = new MemoryGame();
+            }
+        }
+
+        function showCountingGame() {
+            // Stop all audio from other games before switching
+            if (window.memoryGameInstance) {
+                window.memoryGameInstance.stopAllAudio();
+            }
+            
+            document.getElementById('mainHub').style.display = 'none';
+            document.getElementById('instructionsScreen').classList.remove('active');
+            document.getElementById('memoryGame').classList.remove('active');
+            document.getElementById('countingGame').classList.add('active');
+            if (window.countingGameInstance) {
+                window.countingGameInstance.showStartScreen();
+            } else {
+                window.countingGameInstance = new CountingGame();
+            }
+        }
+
+        function showMainHub() {
+            // Stop all audio from all games before returning to hub
+            if (window.memoryGameInstance) {
+                window.memoryGameInstance.stopAllAudio();
+            }
+            if (window.countingGameInstance) {
+                window.countingGameInstance.stopAllAudio();
+            }
+            
+            document.getElementById('memoryGame').classList.remove('active');
+            document.getElementById('countingGame').classList.remove('active');
+            document.getElementById('instructionsScreen').classList.remove('active');
+            document.getElementById('mainHub').style.display = 'flex';
+        }
+
+        function showInstructions() {
+            // Stop all audio from all games before showing instructions
+            if (window.memoryGameInstance) {
+                window.memoryGameInstance.stopAllAudio();
+            }
+            if (window.countingGameInstance) {
+                window.countingGameInstance.stopAllAudio();
+            }
+            
+            document.getElementById('mainHub').style.display = 'none';
+            document.getElementById('memoryGame').classList.remove('active');
+            document.getElementById('countingGame').classList.remove('active');
+            document.getElementById('instructionsScreen').classList.add('active');
+        }
+
+        // Memory Game Class
+        class MemoryGame {
+            constructor() {
+                this.cards = [];
+                this.flippedCards = [];
+                this.matchedPairs = 0;
+                this.totalPairs = 0;
+                this.moves = 0;
+                this.timer = 0;
+                this.timerInterval = null;
+                this.isPlaying = false;
+                this.currentLevel = 0;
+                this.backgroundMusic = null;
+                this.isMusicPlaying = false;
+                this.currentAudio = null;
+                this.letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+                this.initializeGame();
+            }
+
+            initializeGame() {
+                this.setupEventListeners();
+                this.setupMusicControls();
+                this.showLevelScreen();
+            }
+
+            setupEventListeners() {
+                // Level selection buttons
+                document.querySelectorAll('.level-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const level = parseInt(e.target.dataset.level);
+                        this.startLevel(level);
+                    });
+                });
+
+                // Game control buttons
+                const restartBtn = document.getElementById('memoryRestartBtn');
+                const newLevelBtn = document.getElementById('memoryNewLevelBtn');
+                const quitGameBtn = document.getElementById('memoryQuitGameBtn');
+                const replayBtn = document.getElementById('memoryReplayBtn');
+                const nextLevelBtn = document.getElementById('memoryNextLevelBtn');
+
+                if (restartBtn) restartBtn.addEventListener('click', () => this.restartGame());
+                if (newLevelBtn) newLevelBtn.addEventListener('click', () => this.showLevelScreen());
+                if (quitGameBtn) quitGameBtn.addEventListener('click', () => {
+                    if (confirm('Are you sure you want to quit the game? Your progress will be lost.')) {
+                        showMainHub();
+                    }
+                });
+                if (replayBtn) replayBtn.addEventListener('click', () => this.restartGame());
+                if (nextLevelBtn) nextLevelBtn.addEventListener('click', () => this.showLevelScreen());
+            }
+
+            setupMusicControls() {
+                const toggleMusicBtn = document.getElementById('memoryToggleMusicBtn');
+                const musicVolume = document.getElementById('memoryMusicVolume');
+                const toggleMusicBtnGame = document.getElementById('memoryToggleMusicBtnGame');
+                const musicVolumeGame = document.getElementById('memoryMusicVolumeGame');
+
+                if (toggleMusicBtn) {
+                    toggleMusicBtn.addEventListener('click', () => this.toggleBackgroundMusic());
+                }
+                if (musicVolume) {
+                    musicVolume.addEventListener('input', (e) => this.setMusicVolume(e.target.value / 100));
+                }
+                if (toggleMusicBtnGame) {
+                    toggleMusicBtnGame.addEventListener('click', () => this.toggleBackgroundMusic());
+                }
+                if (musicVolumeGame) {
+                    musicVolumeGame.addEventListener('input', (e) => this.setMusicVolume(e.target.value / 100));
+                }
+            }
+
+            toggleBackgroundMusic() {
+                if (this.isMusicPlaying) {
+                    this.stopBackgroundMusic();
+                } else {
+                    this.playBackgroundMusic();
+                }
+            }
+
+            playBackgroundMusic() {
+                try {
+                    if (!this.backgroundMusic) {
+                        this.backgroundMusic = new Audio('assets/memory-game/audio/background-music.mp3');
+                        this.backgroundMusic.loop = true;
+                        this.backgroundMusic.volume = 0.3;
+                    }
+                    this.backgroundMusic.play().then(() => {
+                        this.isMusicPlaying = true;
+                        this.updateMusicButtonState();
+                    }).catch(e => {
+                        console.log('Background music not available:', e);
+                    });
+                } catch (error) {
+                    console.log('Background music not available:', error);
+                }
+            }
+
+            stopBackgroundMusic() {
+                if (this.backgroundMusic) {
+                    this.backgroundMusic.pause();
+                    this.backgroundMusic.currentTime = 0;
+                }
+                this.isMusicPlaying = false;
+                this.updateMusicButtonState();
+            }
+
+            stopAllAudio() {
+                // Stop background music
+                if (this.backgroundMusic) {
+                    this.backgroundMusic.pause();
+                    this.backgroundMusic.currentTime = 0;
+                }
+                
+                // Stop current audio (HTML Audio Element)
+                if (this.currentAudio) {
+                    this.currentAudio.pause();
+                    this.currentAudio.currentTime = 0;
+                    this.currentAudio = null;
+                }
+            }
+
+            setMusicVolume(volume) {
+                if (this.backgroundMusic) {
+                    this.backgroundMusic.volume = volume;
+                }
+            }
+
+            updateMusicButtonState() {
+                const buttons = ['memoryToggleMusicBtn', 'memoryToggleMusicBtnGame'];
+                buttons.forEach(btnId => {
+                    const btn = document.getElementById(btnId);
+                    if (btn) {
+                        if (this.isMusicPlaying) {
+                            btn.textContent = '🔇 Stop Music';
+                            btn.classList.add('playing');
+                        } else {
+                            btn.textContent = '🎵 Play Music';
+                            btn.classList.remove('playing');
+                        }
+                    }
+                });
+            }
+
+            showLevelScreen() {
+                this.hideAllScreens();
+                const levelScreen = document.getElementById('memoryLevelScreen');
+                if (levelScreen) levelScreen.classList.add('active');
+                this.stopTimer();
+                this.stopAllAudio();
+                this.isPlaying = false;
+            }
+
+            startLevel(level) {
+                this.currentLevel = level;
+                this.totalPairs = level;
+                this.matchedPairs = 0;
+                this.moves = 0;
+                this.timer = 0;
+                this.cards = [];
+                this.flippedCards = [];
+                
+                this.stopAllAudio();
+                this.createCards();
+                this.showGameScreen();
+                this.startTimer();
+                this.isPlaying = true;
+            }
+
+            createCards() {
+                const gameBoard = document.getElementById('memoryGameBoard');
+                if (!gameBoard) return;
+                
+                gameBoard.innerHTML = '';
+                
+                const selectedLetters = this.letters.slice(0, this.totalPairs);
+                const cardPairs = [];
+                
+                selectedLetters.forEach(letter => {
+                    cardPairs.push(letter, letter);
+                });
+                
+                this.shuffleArray(cardPairs);
+                
+                cardPairs.forEach((letter, index) => {
+                    const card = this.createCard(letter, index);
+                    gameBoard.appendChild(card);
+                    this.cards.push(card);
+                });
+            }
+
+            createCard(letter, index) {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.dataset.letter = letter;
+                card.dataset.index = index;
+                
+                const cardFront = document.createElement('div');
+                cardFront.className = 'front';
+                
+                const cardBack = document.createElement('div');
+                cardBack.className = 'back';
+                cardBack.textContent = '?';
+                
+                // Create letter display using the image system
+                const img = document.createElement('img');
+                img.src = `assets/memory-game/images/${letter.toUpperCase()}${letter.toLowerCase()}.png`;  // E.g., A.png, B.png
+                img.alt = letter;
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.style.objectFit = 'contain';
+                cardFront.appendChild(img);
+                card.appendChild(cardFront);
+                card.appendChild(cardBack);
+                
+                card.addEventListener('click', () => {
+                    this.flipCard(card);
+                });
+                
+                return card;
+            }
+
+            flipCard(card) {
+                if (!this.isPlaying || card.classList.contains('flipped') || card.classList.contains('matched') || this.flippedCards.length >= 2) {
+                    return;
+                }
+
+                card.classList.add('flipped');
+                this.flippedCards.push(card);
+                
+                this.playSound('flip');
+                
+                if (this.flippedCards.length === 2) {
+                    this.moves++;
+                    this.updateDisplay();
+                    this.checkMatch();
+                }
+            }
+
+            checkMatch() {
+                const [card1, card2] = this.flippedCards;
+                const letter1 = card1.dataset.letter;
+                const letter2 = card2.dataset.letter;
+                
+                if (letter1 === letter2) {
+                    setTimeout(() => {
+                        card1.classList.add('matched');
+                        card2.classList.add('matched');
+                        this.flippedCards = [];
+                        this.matchedPairs++;
+                        this.updateDisplay();
+                        this.playLetterSound(letter1);
+                        
+                        if (this.matchedPairs === this.totalPairs) {
+                            this.gameComplete();
+                        }
+                    }, 500);
+                } else {
+                    setTimeout(() => {
+                        card1.classList.remove('flipped');
+                        card2.classList.remove('flipped');
+                        this.flippedCards = [];
+                    }, 1000);
+                }
+            }
+
+            gameComplete() {
+                this.stopTimer();
+                this.isPlaying = false;
+                this.stopAllAudio();
+                this.playSound('success');
+                this.showSuccessScreen();
+            }
+
+            showSuccessScreen() {
+                this.hideAllScreens();
+                const successScreen = document.getElementById('memorySuccessScreen');
+                if (successScreen) successScreen.classList.add('active');
+                
+                const finalMoves = document.getElementById('memoryFinalMoves');
+                const finalTime = document.getElementById('memoryFinalTime');
+                if (finalMoves) finalMoves.textContent = this.moves;
+                if (finalTime) finalTime.textContent = this.formatTime(this.timer);
+            }
+
+            showGameScreen() {
+                this.hideAllScreens();
+                const gameScreen = document.getElementById('memoryGameScreen');
+                if (gameScreen) gameScreen.classList.add('active');
+                this.updateDisplay();
+            }
+
+            hideAllScreens() {
+                document.querySelectorAll('#memoryGame .screen').forEach(screen => {
+                    screen.classList.remove('active');
+                });
+            }
+
+            startTimer() {
+                this.timerInterval = setInterval(() => {
+                    this.timer++;
+                    this.updateDisplay();
+                }, 1000);
+            }
+
+            stopTimer() {
+                if (this.timerInterval) {
+                    clearInterval(this.timerInterval);
+                    this.timerInterval = null;
+                }
+            }
+
+            updateDisplay() {
+                const moveCount = document.getElementById('memoryMoveCount');
+                const timer = document.getElementById('memoryTimer');
+                const pairsFound = document.getElementById('memoryPairsFound');
+                const totalPairs = document.getElementById('memoryTotalPairs');
+                
+                if (moveCount) moveCount.textContent = this.moves;
+                if (timer) timer.textContent = this.formatTime(this.timer);
+                if (pairsFound) pairsFound.textContent = this.matchedPairs;
+                if (totalPairs) totalPairs.textContent = this.totalPairs;
+            }
+
+            formatTime(seconds) {
+                const minutes = Math.floor(seconds / 60);
+                const remainingSeconds = seconds % 60;
+                return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+            }
+
+            restartGame() {
+                this.stopAllAudio();
+                this.startLevel(this.currentLevel);
+            }
+
+            shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+            }
+
+            playSound(soundType) {
+                try {
+                    // Stop any currently playing audio
+                    if (this.currentAudio) {
+                        this.currentAudio.pause();
+                        this.currentAudio.currentTime = 0;
+                        this.currentAudio = null;
+                    }
+
+                    let audioPath = '';
+                    switch (soundType) {
+                        case 'flip':
+                            audioPath = 'assets/memory-game/audio/flip.mp3';
+                            break;
+                        case 'success':
+                            audioPath = 'assets/memory-game/audio/success.mp3';
+                            break;
+                        default:
+                            return;
+                    }
+
+                    if (audioPath) {
+                        this.currentAudio = new Audio(audioPath);
+                        this.currentAudio.volume = 0.5;
+                        this.currentAudio.play().catch(e => {
+                            console.log('Audio playback failed:', e);
+                        });
+                    }
+                } catch (error) {
+                    console.log('Audio not available:', error);
+                }
+            }
+
+            playLetterSound(letter) {
+                try {
+                    // Stop any currently playing audio
+                    if (this.currentAudio) {
+                        this.currentAudio.pause();
+                        this.currentAudio.currentTime = 0;
+                        this.currentAudio = null;
+                    }
+
+                    // Play the specific letter audio file
+                    const audioPath = `assets/memory-game/audio/${letter}.mp3`;
+                    this.currentAudio = new Audio(audioPath);
+                    this.currentAudio.volume = 0.5;
+                    this.currentAudio.play().catch(e => {
+                        console.log('Letter audio playback failed:', e);
+                        // Fallback to success sound if letter audio fails
+                        this.playSound('success');
+                    });
+                } catch (error) {
+                    console.log('Letter audio not available:', error);
+                    this.playSound('success');
+                }
+            }
+        }
+
+        // Counting Game Class
+        class CountingGame {
+            constructor() {
+                this.currentLevel = 1;
+                this.score = 0;
+                this.maxLevels = 5;
+                this.currentAnswer = 0;
+                this.objects = [];
+                this.currentAudio = null;
+                this.backgroundMusic = null;
+                this.isMusicPlaying = false;
+                this.levelData = {};
+                this.initializeGame();
+            }
+
+            initializeGame() {
+                this.setupEventListeners();
+                this.setupMusicControls();
+                this.showStartScreen();
+            }
+
+            setupEventListeners() {
+                const startBtn = document.getElementById('countingStartBtn');
+                const checkBtn = document.getElementById('countingCheckBtn');
+                const playAgainBtn = document.getElementById('countingPlayAgainBtn');
+                const quitGameBtn = document.getElementById('countingQuitGameBtn');
+                const answerInput = document.getElementById('countingAnswerInput');
+
+                if (startBtn) startBtn.addEventListener('click', () => this.startGame());
+                if (checkBtn) checkBtn.addEventListener('click', () => this.checkAnswer());
+                if (playAgainBtn) playAgainBtn.addEventListener('click', () => this.restartGame());
+                if (quitGameBtn) quitGameBtn.addEventListener('click', () => {
+                    if (confirm('Are you sure you want to quit the game? Your progress will be lost.')) {
+                        showMainHub();
+                    }
+                });
+
+                if (answerInput) {
+                    answerInput.addEventListener('keypress', (e) => {
+                        if (e.key === 'Enter') {
+                            this.checkAnswer();
+                        }
+                    });
+                }
+            }
+
+            setupMusicControls() {
+                const toggleMusicBtn = document.getElementById('countingToggleMusicBtn');
+                const musicVolume = document.getElementById('countingMusicVolume');
+                const toggleMusicBtnGame = document.getElementById('countingToggleMusicBtnGame');
+                const musicVolumeGame = document.getElementById('countingMusicVolumeGame');
+
+                if (toggleMusicBtn) {
+                    toggleMusicBtn.addEventListener('click', () => this.toggleBackgroundMusic());
+                }
+                if (musicVolume) {
+                    musicVolume.addEventListener('input', (e) => this.setMusicVolume(e.target.value / 100));
+                }
+                if (toggleMusicBtnGame) {
+                    toggleMusicBtnGame.addEventListener('click', () => this.toggleBackgroundMusic());
+                }
+                if (musicVolumeGame) {
+                    musicVolumeGame.addEventListener('input', (e) => this.setMusicVolume(e.target.value / 100));
+                }
+            }
+
+            toggleBackgroundMusic() {
+                if (this.isMusicPlaying) {
+                    this.stopBackgroundMusic();
+                } else {
+                    this.playBackgroundMusic();
+                }
+            }
+
+            playBackgroundMusic() {
+                try {
+                    if (!this.backgroundMusic) {
+                        this.backgroundMusic = new Audio('assets/numer-counting-game/audio/background-music.mp3');
+                        this.backgroundMusic.loop = true;
+                        this.backgroundMusic.volume = 0.3;
+                    }
+                    this.backgroundMusic.play().then(() => {
+                        this.isMusicPlaying = true;
+                        this.updateMusicButtonState();
+                    }).catch(e => {
+                        console.log('Background music not available:', e);
+                    });
+                } catch (error) {
+                    console.log('Background music not available:', error);
+                }
+            }
+
+            stopBackgroundMusic() {
+                if (this.backgroundMusic) {
+                    this.backgroundMusic.pause();
+                    this.backgroundMusic.currentTime = 0;
+                }
+                this.isMusicPlaying = false;
+                this.updateMusicButtonState();
+            }
+
+            stopAllAudio() {
+                // Stop background music
+                if (this.backgroundMusic) {
+                    this.backgroundMusic.pause();
+                    this.backgroundMusic.currentTime = 0;
+                }
+                
+                // Stop current audio (HTML Audio Element)
+                if (this.currentAudio) {
+                    this.currentAudio.pause();
+                    this.currentAudio.currentTime = 0;
+                    this.currentAudio = null;
+                }
+            }
+
+            stopAudio() {
+                if (this.currentAudio) {
+                    this.currentAudio.pause();
+                    this.currentAudio.currentTime = 0;
+                    this.currentAudio = null;
+                }
+            }
+
+            setMusicVolume(volume) {
+                if (this.backgroundMusic) {
+                    this.backgroundMusic.volume = volume;
+                }
+            }
+
+            updateMusicButtonState() {
+                const buttons = ['countingToggleMusicBtn', 'countingToggleMusicBtnGame'];
+                buttons.forEach(btnId => {
+                    const btn = document.getElementById(btnId);
+                    if (btn) {
+                        if (this.isMusicPlaying) {
+                            btn.textContent = '🔇 Stop Music';
+                            btn.classList.add('playing');
+                        } else {
+                            btn.textContent = '🎵 Play Music';
+                            btn.classList.remove('playing');
+                        }
+                    }
+                });
+            }
+
+            showStartScreen() {
+                this.hideAllScreens();
+                const startScreen = document.getElementById('countingStartScreen');
+                if (startScreen) startScreen.classList.add('active');
+                this.stopAllAudio();
+            }
+
+            startGame() {
+                this.stopAllAudio();
+                this.currentLevel = 1;
+                this.score = 0;
+                this.levelData = {};
+                this.updateDisplay();
+                this.loadLevel();
+                this.showGameScreen();
+            }
+
+            loadLevel() {
+                const levelData = this.getLevelData(this.currentLevel);
+                this.currentAnswer = levelData.count;
+                this.currentLevelAttempts = 0;
+
+                const questionText = document.getElementById('countingQuestionText');
+                if (questionText) {
+                    questionText.textContent = `How many ${levelData.objectName} do you see?`;
+                }
+
+                this.placeObjects(levelData);
+                this.clearFeedback();
+
+                const answerInput = document.getElementById('countingAnswerInput');
+                if (answerInput) {
+                    answerInput.focus();
+                }
+            }
+
+            getLevelData(level) {
+                if (this.levelData[level]) {
+                    return this.levelData[level];
+                }
+
+                const levelData = {
+                    1: { count: Math.floor(Math.random() * 10) + 1, objectName: 'apples', objectType: 'level-1' },
+                    2: { count: Math.floor(Math.random() * 15) + 5, objectName: 'zebras', objectType: 'level-2' },
+                    3: { count: Math.floor(Math.random() * 12) + 8, objectName: 'vans', objectType: 'level-3' },
+                    4: { count: Math.floor(Math.random() * 10) + 10, objectName: 'umbrellas', objectType: 'level-4' },
+                    5: { count: Math.floor(Math.random() * 8) + 12, objectName: 'cats', objectType: 'level-5' }
+                };
+
+                this.levelData[level] = levelData[level] || { 
+                    count: Math.floor(Math.random() * 20) + 1, 
+                    objectName: 'objects', 
+                    objectType: `level-${level}` 
+                };
+
+                return this.levelData[level];
+            }
+
+            placeObjects(levelData) {
+                const container = document.getElementById('countingObjectsContainer');
+                if (!container) return;
+                
+                container.innerHTML = '';
+                this.objects = [];
+
+                for (let i = 0; i < levelData.count; i++) {
+                    const object = this.createObject(levelData.objectType, i);
+                    container.appendChild(object);
+                    this.objects.push(object);
+                }
+            }
+
+            createObject(objectType, index) {
+                const object = document.createElement('div');
+                object.className = 'counting-object';
+                object.textContent = this.getObjectEmoji(objectType);
+                object.style.fontSize = '2rem';
+
+                const gridSize = Math.ceil(Math.sqrt(this.currentAnswer || 10));
+                const cellWidth = 70 / gridSize;
+                const cellHeight = 60 / gridSize;
+
+                const row = Math.floor(index / gridSize);
+                const col = index % gridSize;
+
+                const x = 15 + (col * cellWidth) + (Math.random() * (cellWidth * 0.4));
+                const y = 15 + (row * cellHeight) + (Math.random() * (cellHeight * 0.4));
+
+                object.style.left = `${x}%`;
+                object.style.top = `${y}%`;
+                object.style.animationDelay = `${index * 0.2}s`;
+
+                return object;
+            }
+
+            getObjectEmoji(objectType) {
+                return getGameImage(objectType) || '🎯';
+            }
+
+            checkAnswer() {
+                const input = document.getElementById('countingAnswerInput');
+                if (!input) return;
+                
+                const userAnswer = parseInt(input.value);
+
+                if (isNaN(userAnswer) || userAnswer < 1) {
+                    this.showFeedback('Please enter a valid number!', 'incorrect');
+                    return;
+                }
+
+                if (userAnswer === this.currentAnswer) {
+                    this.score++;
+                    this.showFeedback('🎉 Correct! Well done!', 'correct');
+                    this.playSound('correct');
+
+                    setTimeout(() => {
+                        this.nextLevel();
+                    }, 1500);
+                } else {
+                    if (!this.currentLevelAttempts) {
+                        this.currentLevelAttempts = 0;
+                    }
+                    this.currentLevelAttempts++;
+                    this.updateDisplay();
+
+                    if (this.currentLevelAttempts >= 2) {
+                        this.showFeedback(`The correct answer was ${this.currentAnswer}. Let's try the next level!`, 'incorrect');
+                        this.playSound('incorrect');
+
+                        setTimeout(() => {
+                            this.nextLevel();
+                        }, 2000);
+                    } else {
+                        this.showFeedback(`Try again! You have ${2 - this.currentLevelAttempts} more attempt(s).`, 'incorrect');
+                        this.playSound('incorrect');
+                        input.value = '';
+                        input.focus();
+                    }
+                }
+            }
+
+            nextLevel() {
+                this.currentLevel++;
+
+                if (this.currentLevel > this.maxLevels) {
+                    this.gameComplete();
+                } else {
+                    this.updateDisplay();
+                    this.loadLevel();
+                }
+            }
+
+            gameComplete() {
+                const percentage = (this.score / this.maxLevels) * 100;
+
+                if (percentage >= 70) {
+                    this.stopAllAudio();
+                    this.playSound('success');
+                    this.showSuccessScreen();
+                } else {
+                    this.stopAllAudio();
+                    this.playSound('failure');
+                    this.showRetryScreen();
+                }
+            }
+
+            showSuccessScreen() {
+                this.hideAllScreens();
+                const successScreen = document.getElementById('countingSuccessScreen');
+                if (successScreen) successScreen.classList.add('active');
+                
+                const finalScore = document.getElementById('countingFinalScore');
+                const exactPercentage = document.getElementById('countingExactPercentage');
+                
+                if (finalScore) finalScore.textContent = this.score;
+                if (exactPercentage) exactPercentage.textContent = Math.round((this.score / this.maxLevels) * 100);
+            }
+
+            showRetryScreen() {
+                this.hideAllScreens();
+                const successScreen = document.getElementById('countingSuccessScreen');
+                if (successScreen) {
+                    successScreen.classList.add('active');
+                    const title = successScreen.querySelector('h1');
+                    const confetti = successScreen.querySelector('.confetti');
+                    const percentage = successScreen.querySelector('#countingExactPercentage');
+                    
+                    if (title) title.textContent = '😔 Almost There!';
+                    if (confetti) confetti.textContent = '💪';
+                    if (percentage) percentage.textContent = Math.round((this.score / this.maxLevels) * 100);
+                }
+            }
+
+            showGameScreen() {
+                this.hideAllScreens();
+                const gameScreen = document.getElementById('countingGameScreen');
+                if (gameScreen) gameScreen.classList.add('active');
+            }
+
+            hideAllScreens() {
+                document.querySelectorAll('#countingGame .screen').forEach(screen => {
+                    screen.classList.remove('active');
+                });
+            }
+
+            updateDisplay() {
+                const currentLevel = document.getElementById('countingCurrentLevel');
+                const score = document.getElementById('countingScore');
+                const currentAttempts = document.getElementById('countingCurrentAttempts');
+                
+                if (currentLevel) currentLevel.textContent = this.currentLevel;
+                if (score) score.textContent = this.score;
+                if (currentAttempts) currentAttempts.textContent = this.currentLevelAttempts || 0;
+            }
+
+            showFeedback(message, type) {
+                const feedback = document.getElementById('countingFeedback');
+                if (feedback) {
+                    feedback.textContent = message;
+                    feedback.className = `feedback ${type}`;
+                }
+            }
+
+            clearFeedback() {
+                const feedback = document.getElementById('countingFeedback');
+                if (feedback) {
+                    feedback.textContent = '';
+                    feedback.className = 'feedback';
+                }
+            }
+
+            restartGame() {
+                this.stopAllAudio();
+                this.currentLevel = 1;
+                this.score = 0;
+                this.levelData = {};
+                this.updateDisplay();
+                this.loadLevel();
+                this.showGameScreen();
+            }
+
+            playSound(soundType) {
+                try {
+                    // Stop any currently playing audio
+                    if (this.currentAudio) {
+                        this.currentAudio.pause();
+                        this.currentAudio.currentTime = 0;
+                        this.currentAudio = null;
+                    }
+
+                    let audioPath = '';
+                    switch (soundType) {
+                        case 'correct':
+                            audioPath = 'assets/numer-counting-game/audio/correct.mp3';
+                            break;
+                        case 'incorrect':
+                            audioPath = 'assets/numer-counting-game/audio/incorrect.mp3';
+                            break;
+                        case 'success':
+                            audioPath = 'assets/numer-counting-game/audio/success.mp3';
+                            break;
+                        case 'failure':
+                            audioPath = 'assets/numer-counting-game/audio/failure.mp3';
+                            break;
+                        default:
+                            return;
+                    }
+
+                    if (audioPath) {
+                        this.currentAudio = new Audio(audioPath);
+                        this.currentAudio.volume = 0.5;
+                        this.currentAudio.play().catch(e => {
+                            console.log('Audio playback failed:', e);
+                        });
+                    }
+                } catch (error) {
+                    console.log('Audio not available:', error);
+                }
+            }
+        }
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                showMainHub();
+            }
+        });
+
+        // Image assets as base64 (key images only to keep file size manageable)
+        const GAME_IMAGES = {
+            // Letter cards (using emojis for now, but can be replaced with actual images)
+            'A': '🔤',
+            'B': '🔤', 
+            'C': '🔤',
+            'D': '🔤',
+            'E': '🔤',
+            'F': '🔤',
+            'G': '🔤',
+            'H': '🔤',
+            'I': '🔤',
+            'J': '🔤',
+            'K': '🔤',
+            'L': '🔤',
+            'M': '🔤',
+            'N': '🔤',
+            'O': '🔤',
+            'P': '🔤',
+            'Q': '🔤',
+            'R': '🔤',
+            'S': '🔤',
+            'T': '🔤',
+            'U': '🔤',
+            'V': '🔤',
+            'W': '🔤',
+            'X': '🔤',
+            'Y': '🔤',
+            'Z': '🔤',
+            
+            // Background images (using gradients for now)
+            'jungle-bg': 'linear-gradient(135deg, #2d5016 0%, #4a7c59 100%)',
+            'ocean-bg': 'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)',
+            'space-bg': 'linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 100%)',
+            
+            // Counting game objects
+            'level-1': '🍎',
+            'level-2': '🦓',
+            'level-3': '🚐',
+            'level-4': '☂️',
+            'level-5': '🐱'
+        };
+
+        // Function to get image or emoji
+        function getGameImage(key) {
+            return GAME_IMAGES[key] || '🎯';
+        }
+
+        // Function to get background style
+        function getBackgroundStyle(key) {
+            const bg = GAME_IMAGES[key];
+            if (bg && bg.startsWith('linear-gradient')) {
+                return bg;
+            }
+            return 'linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%)';
+        }
+    </script>
+</body>
+</html>

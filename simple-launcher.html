@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Games - Easy Launcher</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .header {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            padding: 40px 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+            animation: bounceIn 1s ease-out;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            padding: 40px 30px;
+        }
+
+        .start-button {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            margin: 30px auto;
+            padding: 25px 40px;
+            background: linear-gradient(45deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            color: #333;
+            text-decoration: none;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 4px solid #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .start-button:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .start-button:active {
+            transform: translateY(-4px) scale(1.02);
+        }
+
+        .start-button::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s;
+            opacity: 0;
+        }
+
+        .start-button:hover::before {
+            opacity: 1;
+            transform: rotate(45deg) translate(50%, 50%);
+        }
+
+        .instructions-section {
+            margin-top: 40px;
+        }
+
+        .instructions-section h2 {
+            color: #667eea;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .instruction-card {
+            background: linear-gradient(145deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .instruction-card h3 {
+            color: #667eea;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .instruction-card h3::before {
+            content: '📱';
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .step {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border-left: 4px solid #4ecdc4;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .step strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .mobile-only {
+            display: none;
+            background: linear-gradient(145deg, #fff3cd 0%, #ffeaa7 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            border: 2px solid #ffc107;
+        }
+
+        .mobile-only h3 {
+            color: #856404;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .mobile-only ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .mobile-only li {
+            padding: 8px 0;
+            border-bottom: 1px solid #ffeaa7;
+        }
+
+        .mobile-only li:last-child {
+            border-bottom: none;
+        }
+
+        .desktop-info {
+            background: linear-gradient(145deg, #d4edda 0%, #c3e6cb 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            border: 2px solid #28a745;
+            text-align: center;
+        }
+
+        .desktop-info h3 {
+            color: #155724;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-only {
+                display: block;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .start-button {
+                font-size: 1.3rem;
+                padding: 20px 30px;
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .emoji {
+            font-size: 2rem;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎮 Educational Games</h1>
+            <p>Fun learning games for kids - Just click to start!</p>
+        </div>
+        
+        <div class="main-content">
+            <a href="educational-games-single-file.html" class="start-button">
+                <span class="emoji">🚀</span>
+                START GAMES NOW
+                <span class="emoji">🎯</span>
+            </a>
+            
+            <div class="instructions-section">
+                <h2>📱 For Mobile Users</h2>
+                
+                <div class="instruction-card">
+                    <h3>Google Drive (ONLY RELIABLE METHOD)</h3>
+                    <div class="step">
+                        <strong>Step 1:</strong> Go to drive.google.com on your computer
+                    </div>
+                    <div class="step">
+                        <strong>Step 2:</strong> Upload the "educational-games-single-file.html" file
+                    </div>
+                    <div class="step">
+                        <strong>Step 3:</strong> Right-click the file → Share → Copy link
+                    </div>
+                    <div class="step">
+                        <strong>Step 4:</strong> Send the link to your phone and open it
+                    </div>
+                </div>
+                
+                <div class="instruction-card">
+                    <h3>Dropbox (ALSO WORKS)</h3>
+                    <div class="step">
+                        <strong>Step 1:</strong> Go to dropbox.com on your computer
+                    </div>
+                    <div class="step">
+                        <strong>Step 2:</strong> Upload the "educational-games-single-file.html" file
+                    </div>
+                    <div class="step">
+                        <strong>Step 3:</strong> Right-click → Share → Copy link
+                    </div>
+                    <div class="step">
+                        <strong>Step 4:</strong> Open link on phone
+                    </div>
+                </div>
+                
+                <div class="instruction-card" style="background: linear-gradient(145deg, #f8d7da 0%, #f5c6cb 100%); border-left: 5px solid #dc3545;">
+                    <h3 style="color: #721c24;">❌ These DON'T Work on Mobile</h3>
+                    <div class="step">
+                        <strong>Email Method:</strong> Sounds won't play
+                    </div>
+                    <div class="step">
+                        <strong>WhatsApp Method:</strong> Sounds won't play
+                    </div>
+                    <div class="step">
+                        <strong>USB Transfer:</strong> Sounds won't play
+                    </div>
+                    <div class="step">
+                        <strong>Direct File Open:</strong> Sounds won't play
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mobile-only">
+                <h3>📱 You're on Mobile!</h3>
+                <p>If the game doesn't work, try:</p>
+                <ul>
+                    <li>✅ Use Google Drive method (see instructions above)</li>
+                    <li>✅ Try a different browser (Chrome, Safari)</li>
+                    <li>✅ Make sure you downloaded the complete zip file</li>
+                    <li>✅ Tap the screen once to enable audio</li>
+                </ul>
+            </div>
+            
+            <div class="desktop-info">
+                <h3>💻 Desktop Users</h3>
+                <p>Just click the "START GAMES NOW" button above - it works immediately!</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Auto-detect if user is on mobile
+        if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            document.querySelector('.mobile-only').style.display = 'block';
+        }
+        
+        // Add click animation to start button
+        document.querySelector('.start-button').addEventListener('click', function() {
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        });
+    </script>
+</body>
+</html>
