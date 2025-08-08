@@ -4,8 +4,8 @@ This package contains educational games for children in a single HTML file forma
 
 FILES INCLUDED:
 - educational-games-single-file.html (Main game file)
-- memory-game/assets/audio/ (Audio files for Memory Game)
-- numer-counting-game/assets/audio/ (Audio files for Counting Game)
+- assets/memory-game/audio/ (Audio files for Memory Game)
+- assets/numer-counting-game/audio/ (Audio files for Counting Game)
 
 HOW TO USE:
 1. Extract all files from the zip folder

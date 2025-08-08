@@ -1005,9 +1005,9 @@
                 <header class="game-header">
                     <h1>🔠 Alphabet Matching Game</h1>
                     <div class="game-stats">
-                        <span class="moves">Moves: <span id="memoryMoveCount">0</span></span>
-                        <span class="timer">Time: <span id="memoryTimer">00:00</span></span>
-                        <span class="pairs">Pairs: <span id="memoryPairsFound">0</span>/<span id="memoryTotalPairs">0</span></span>
+                        <span class="moves">Moves: <span id="memoryMoveCount"> 0 /</span></span>
+                        <span class="timer">Time: <span id="memoryTimer">00:00  /</span></span>
+                        <span class="pairs">Pairs: <span id="memoryPairsFound">0</span>/<span id="memoryTotalPairs">0  /</span></span>
                     </div>
                     <div class="music-controls">
                         <button class="music-btn" id="memoryToggleMusicBtnGame">🎵 Play Music</button>
@@ -1263,7 +1263,7 @@
             playBackgroundMusic() {
                 try {
                     if (!this.backgroundMusic) {
-                        this.backgroundMusic = new Audio('memory-game/assets/audio/background-music.mp3');
+                        this.backgroundMusic = new Audio('assets/memory-game/audio/background-music.mp3');
                         this.backgroundMusic.loop = true;
                         this.backgroundMusic.volume = 0.3;
                     }
@@ -1385,14 +1385,13 @@
                 cardBack.textContent = '?';
                 
                 // Create letter display using the image system
-                const letterDisplay = document.createElement('div');
-                letterDisplay.textContent = letter;
-                letterDisplay.style.fontSize = '3rem';
-                letterDisplay.style.fontWeight = 'bold';
-                letterDisplay.style.color = '#333';
-                letterDisplay.style.textShadow = '2px 2px 4px rgba(0,0,0,0.3)';
-                cardFront.appendChild(letterDisplay);
-                
+                const img = document.createElement('img');
+                img.src = `assets/memory-game/images/${letter.toUpperCase()}${letter.toLowerCase()}.png`;  // E.g., A.png, B.png
+                img.alt = letter;
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.style.objectFit = 'contain';
+                cardFront.appendChild(img);
                 card.appendChild(cardFront);
                 card.appendChild(cardBack);
                 
@@ -1535,10 +1534,10 @@
                     let audioPath = '';
                     switch (soundType) {
                         case 'flip':
-                            audioPath = 'memory-game/assets/audio/flip.mp3';
+                            audioPath = 'assets/memory-game/audio/flip.mp3';
                             break;
                         case 'success':
-                            audioPath = 'memory-game/assets/audio/success.mp3';
+                            audioPath = 'assets/memory-game/audio/success.mp3';
                             break;
                         default:
                             return;
@@ -1566,7 +1565,7 @@
                     }
 
                     // Play the specific letter audio file
-                    const audioPath = `memory-game/assets/audio/${letter}.mp3`;
+                    const audioPath = `assets/memory-game/audio/${letter}.mp3`;
                     this.currentAudio = new Audio(audioPath);
                     this.currentAudio.volume = 0.5;
                     this.currentAudio.play().catch(e => {
@@ -1658,7 +1657,7 @@
             playBackgroundMusic() {
                 try {
                     if (!this.backgroundMusic) {
-                        this.backgroundMusic = new Audio('numer-counting-game/assets/audio/background-music.mp3');
+                        this.backgroundMusic = new Audio('assets/numer-counting-game/audio/background-music.mp3');
                         this.backgroundMusic.loop = true;
                         this.backgroundMusic.volume = 0.3;
                     }
@@ -1980,16 +1979,16 @@
                     let audioPath = '';
                     switch (soundType) {
                         case 'correct':
-                            audioPath = 'numer-counting-game/assets/audio/correct.mp3';
+                            audioPath = 'assets/numer-counting-game/audio/correct.mp3';
                             break;
                         case 'incorrect':
-                            audioPath = 'numer-counting-game/assets/audio/incorrect.mp3';
+                            audioPath = 'assets/numer-counting-game/audio/incorrect.mp3';
                             break;
                         case 'success':
-                            audioPath = 'numer-counting-game/assets/audio/success.mp3';
+                            audioPath = 'assets/numer-counting-game/audio/success.mp3';
                             break;
                         case 'failure':
-                            audioPath = 'numer-counting-game/assets/audio/failure.mp3';
+                            audioPath = 'assets/numer-counting-game/audio/failure.mp3';
                             break;
                         default:
                             return;
