@@ -1,85 +1,48 @@
 📱 SIMPLE ACCESS GUIDE FOR PARENTS
-====================================
+For Kids Ages 2–6
 
-NO SETUP REQUIRED! Just share the link with your kids.
+NO SETUP REQUIRED – Your purchase includes instant access to our secure game link. Just share the link with your child and start playing.
 
-🎯 RECOMMENDED METHOD: GITHUB PAGES
-====================================
+🎯 RECOMMENDED METHOD: ONLINE ACCESS
 
-✅ ONE LINK WORKS EVERYWHERE:
-- Share the GitHub Pages URL with your kids
-- Works perfectly on mobile, tablet, and desktop
-- All sounds and images work perfectly
-- No downloads or installations needed
+Use the private game link provided after purchase
 
-HOW TO USE:
-1. Open the GitHub Pages URL on any device
-2. The games start immediately
-3. All features work perfectly (sounds, images, animations)
-4. No technical setup required
+Works perfectly on mobile, tablet, and desktop
 
-BENEFITS:
-- 🎮 Works on all devices (iPhone, Android, iPad, computers)
-- 🔊 All sounds play perfectly
-- 🖼️ All images display correctly
-- 📱 No mobile browser restrictions
-- 💰 Completely free
-- 🔗 One link works everywhere
+No installations or extra software required
 
-ALTERNATIVE METHODS:
-====================================
+All sounds, animations, and images function exactly as intended
 
-DESKTOP USERS (Local Files):
-1. Download the game files
-2. Open index.html in any web browser
-3. Works immediately on desktop computers
+HOW TO USE
 
-MOBILE USERS (GitHub Pages):
-1. Use the GitHub Pages URL
-2. Works perfectly on all mobile devices
-3. No file downloads needed
+Click the private link included with your purchase
 
-DESKTOP DOWNLOAD INSTRUCTIONS:
-====================================
+The games start instantly — no setup needed
 
-For desktop users who want to download and use files locally:
+Play on iPhone, iPad, Android, Windows, or Mac
 
-STEP 1: DOWNLOAD FILES
-1. Go to the GitHub repository
-2. Click the green "Code" button
-3. Select "Download ZIP"
-4. Extract the ZIP file to your computer
+Works in Chrome, Safari, Firefox, and Edge
 
-STEP 2: SETUP FILES
-1. Keep all files in the same folder:
-   - index.html
-   - assets/ folder
-   - simple-launcher.html
-   - README.txt
-   - PARENT-INSTRUCTIONS.txt
+BENEFITS FOR PARENTS
 
-STEP 3: RUN THE GAME
-1. Double-click on "index.html"
-2. The game opens in your default web browser
-3. All features work immediately (sounds, images, animations)
+🎮 Interactive & engaging gameplay for ages 2–6
 
-IMPORTANT NOTES:
-- Only works on desktop computers
-- Mobile devices cannot run local files properly
-- For mobile, use the GitHub Pages URL instead
-- All files must stay in the same folder
+🔊 Audio feedback for letters, numbers, and success messages
 
-TROUBLESHOOTING:
-====================================
+🖼️ Bright, child-friendly graphics
 
-If the game doesn't work:
-1. Try a different browser (Chrome, Safari, Firefox)
-2. Make sure you're using the GitHub Pages URL
-3. Check your internet connection
-4. Try refreshing the page
+📱 Fully mobile-optimized for touch controls
 
-NEED HELP?
-- GitHub Pages URL is the most reliable method
-- Works on all devices without any setup
-- Professional delivery to customers
-- No technical skills needed
+🔒 Secure, private link access only for paying customers
+
+ALTERNATIVE METHOD (Desktop Offline Version)
+If you prefer, your purchase also includes a downloadable desktop version:
+
+Download the ZIP file from your account page after purchase
+
+Extract the files to your computer
+
+Open the launcher file in your browser to play offline
+
+SUPPORT
+If you have any issues accessing or using your game, please contact us via the store’s messaging system. We’re happy to help you get started.

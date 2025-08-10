@@ -1,148 +1,78 @@
-EDUCATIONAL GAMES - GITHUB PAGES VERSION
-========================================
+-- Paid Version
+EDUCATIONAL GAMES – PREMIUM ACCESS
+For Kids Ages 2–6 – Includes 2 Games in 1 Package
 
-This package contains a complete educational games suite hosted on GitHub Pages
-for easy access on all devices (desktop, mobile, tablet).
+WHAT YOU’VE PURCHASED
+This package includes our complete educational games suite, designed to make early learning fun, interactive, and accessible anywhere.
 
-CURRENT STATUS:
-✅ GitHub Pages hosting configured
-✅ HTTPS enforced for security
-✅ Custom domain setup available
-✅ All assets properly organized
-✅ Mobile compatibility confirmed
+✅ Private online version (works instantly on all devices)
+✅ Downloadable desktop version for offline play
+✅ Lifetime access — no recurring fees
 
-FILES INCLUDED:
-- index.html (Main game file - GitHub Pages entry point)
-- simple-launcher.html (Easy launcher for parents)
-- PARENT-INSTRUCTIONS.txt (Simple access guide)
-- assets/ (Folder containing all game assets)
-  - memory-game/ (Memory game assets)
-    - audio/ (All audio files for memory game)
-    - images/ (All card images A-Z)
-  - numer-counting-game/ (Counting game assets)
-    - audio/ (All audio files for counting game)
-    - images/ (All level background images)
+GAMES INCLUDED
 
-HOW TO ACCESS:
-1. Visit the GitHub Pages URL provided
-2. The games work immediately on any device
-3. No downloads or installations required
-4. All sounds and images work perfectly
-5. HTTPS secured connection
+Alphabet Memory Game (🧩)
 
-GAMES INCLUDED:
-1. Alphabet Memory Game (🧩)
-   - Match letter cards with their images
-   - 5 difficulty levels
-   - Letter-specific audio feedback (A.mp3, B.mp3, etc.)
-   - Timer and move counter
-   - Success.mp3 on level completion
+Match letter cards with their images
 
-2. Count & Win Game (🎯)
-   - Count objects and enter the correct number
-   - 5 difficulty levels
-   - Audio feedback for correct/incorrect answers
-   - Progressive difficulty
-   - Success.mp3 on level completion
+5 difficulty levels
 
-FEATURES:
-- Fully responsive design (mobile, tablet, desktop)
-- Touch-friendly controls
-- Background music and sound effects
-- Instructions for parents
-- Works on all devices and browsers
-- No mobile browser restrictions
-- HTTPS security enabled
-- Professional hosting
+Letter-specific audio feedback (A.mp3, B.mp3, etc.)
 
-ACCESS METHODS:
-1. GitHub Pages URL (RECOMMENDED)
-   - Works perfectly on all devices
-   - All sounds and images work
-   - No setup required
-   - Share one link with everyone
-   - HTTPS secured
-   - Custom domain support
+Timer and move counter
 
-2. Local File (Desktop Only)
-   - Download the files
-   - Open index.html in any web browser
-   - Works immediately on desktop
+Fun sound effects for success
 
-DESKTOP DOWNLOAD INSTRUCTIONS:
-========================================
+Count & Win Game (🎯)
 
-For users who want to download and use the files locally:
+Count objects and select the correct number
 
-STEP 1: DOWNLOAD FILES
-1. Go to the GitHub repository
-2. Click the green "Code" button
-3. Select "Download ZIP"
-4. Extract the ZIP file to your computer
+5 progressive difficulty levels
 
-STEP 2: SETUP FILES
-1. Keep all files in the same folder:
-   - index.html
-   - assets/ folder
-   - simple-launcher.html
-   - README.txt
-   - PARENT-INSTRUCTIONS.txt
+Audio feedback for correct/incorrect answers
 
-STEP 3: RUN THE GAME
-1. Double-click on "index.html"
-2. The game opens in your default web browser
-3. All features work immediately (sounds, images, animations)
+Builds early math skills
 
-IMPORTANT NOTES:
-- Only works on desktop computers
-- Mobile devices cannot run local files properly
-- For mobile, use the GitHub Pages URL instead
-- All files must stay in the same folder
+FEATURES
 
-BENEFITS OF GITHUB PAGES:
-- ✅ Works on all devices (mobile, tablet, desktop)
-- ✅ All sounds play perfectly
-- ✅ All images display correctly
-- ✅ No mobile browser restrictions
-- ✅ Free hosting forever
-- ✅ Professional delivery
-- ✅ One link works everywhere
-- ✅ HTTPS security enabled
-- ✅ Custom domain support
+Works on mobile, tablet, and desktop
 
-CUSTOM DOMAIN SETUP:
-========================================
+Touch-friendly and child-safe design
 
-To use a custom domain (e.g., educationalgames.com):
+Secure HTTPS hosting for online play
 
-1. Purchase a domain from a registrar (GoDaddy, Namecheap, etc.)
-2. In GitHub Pages settings:
-   - Enter your custom domain
-   - CHECK "Enforce HTTPS" box
-   - Save settings
-3. Configure DNS records with your registrar:
-   - Add CNAME record pointing to yourusername.github.io
-   - Or add A records for IP addresses
-4. Wait for DNS propagation (up to 24 hours)
+Private access link (only for paying customers)
 
-TECHNICAL NOTES:
-- All audio files are in MP3 format
-- All images are in PNG format
-- Hosted on GitHub Pages for reliability
-- Works with any modern web browser
-- No external dependencies required
-- HTTPS enforced for security
-- Mobile-optimized responsive design
+Fun sounds, animations, and interactive graphics
 
-CURRENT FILES STATUS:
-- ✅ index.html (main game file)
-- ✅ simple-launcher.html (parent launcher)
-- ✅ assets/ folder (all game resources)
-- ✅ README.txt (this file)
-- ✅ PARENT-INSTRUCTIONS.txt (parent guide)
-- ✅ GitHub Pages hosting configured
-- ✅ HTTPS security enabled
+ACCESS INSTRUCTIONS
 
-For support or questions, please refer to the game instructions within the application.
+Online Version (Recommended)
 
+Click your private link after purchase
+
+Works instantly on any modern browser
+
+No installation or setup required
+
+Offline Desktop Version
+
+Download the ZIP file from your account
+
+Extract all files to one folder
+
+Open the included launcher file in your browser to play offline
+
+TECHNICAL DETAILS
+
+Audio in MP3 format, images in PNG format
+
+Runs in Chrome, Safari, Firefox, and Edge
+
+Mobile-optimized for responsive play
+
+All files included for offline use
+
+SUPPORT
+If you have any trouble accessing or playing your games, contact our customer support through your purchase confirmation page.
 
